@@ -1,0 +1,62 @@
+spring:
+  profiles: dev
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/student_local_db
+    password: Root@123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+server:
+  error:
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+---
+
+spring:
+  profiles: qa
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/student_local_db_qa
+    password: Root@123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+server:
+  error:
+    include-message: always
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/student_local_db_prod
+    password: Root@123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+server:
+  error:
+    include-message: always
+
+---
+
+spring:
+  profiles:
+    active: dev
